@@ -1,0 +1,50 @@
+command for cassandra
+-----------------------------------
+# for logs in docker
+docker logs <container-name>
+
+# Check Docker network
+docker network ls
+
+# Create docker & and cnnect container to docker
+docker network create my_network
+docker network connect my_network cassandra-container
+docker network connect my_network kafka-container
+
+# connect to Cassandra from your local machine or another container
+docker exec -it cassandra-container cqlsh
+
+nodetool is a command-line utility provided by Apache Cassandra for managing and monitoring Cassandra nodes
+-----------
+
+# Check cluster status.
+docker exec -it cassandra-container nodetool status
+
+# check network for two container
+docker exec kafka-container ping cassandra-container
+
+# cassandra listning check
+docker exec -it cassandra-container ss -tuln | grep 9042
+docker exec -it cassandra-container netstat -tuln | grep 9042
+
+
+# if netstat not available
+docker exec -it cassandra-container apt-get update
+docker exec -it cassandra-container apt-get install -y net-tools iproute2
+
+#Check disk space
+docker exec -it cassandra-container df -h
+
+# clean logs
+docker exec -it cassandra-container rm -rf /var/log/cassandra/*
+
+# Check for heap memory
+docker exec -it cassandra-container cat /etc/cassandra/cassandra-env.sh | grep "MAX_HEAP_SIZE"
+
+
+
+
+
+
+
+

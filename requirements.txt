@@ -1,0 +1,5 @@
+apache-airflow
+python-dotenv
+confluent-kafka
+cassandra-driver
+pandas

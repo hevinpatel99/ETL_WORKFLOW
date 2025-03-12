@@ -1,0 +1,132 @@
+Apache Airflow
+----------------------
+
+# install
+pip install apache-airflow
+pip install apache-airflow==2.7.3
+
+
+# Initialize Airflow database
+airflow db init
+
+# Check the Airflow initialize
+airflow db check
+
+
+# Create User
+airflow users create \
+    --username admin \
+    --password admin \
+    --firstname Admin \
+    --lastname User \
+    --role Admin \
+    --email admin@example.com
+
+# Start Webserver
+airflow webserver --port 8080
+
+# Start the Airflow scheduler
+airflow scheduler
+
+
+# Show Airflow CLI help
+airflow --help
+
+
+# Show Airflow version
+airflow version
+
+# Reset the database
+airflow db reset
+
+
+# List all users
+airflow users list
+
+
+# List all connections
+airflow connections list
+
+
+# Display system & Airflow environment info
+airflow info
+
+
+# List all available DAGs
+airflow dags list
+
+
+# Trigger a DAG run manually
+airflow dags trigger <dag_id>
+
+
+# Pause a DAG
+airflow dags pause <dag_id>
+
+# Unpause a DAG
+airflow dags unpause <dag_id>
+
+# Delete a DAG (not recommended)
+airflow dags delete <dag_id>
+
+
+# Display DAG structure
+airflow dags show <dag_id>
+
+# List DAG runs
+airflow dags list-runs
+
+
+# List all tasks in a DAG
+airflow tasks list <dag_id>
+
+# Run a task manually
+airflow tasks run <dag_id> <task_id> <date>
+
+
+
+# Restart airflow
+--------------------------------------------------------------------------------------------
+pkill -f "airflow webserver"
+pkill -f "airflow scheduler"
+airflow webserver --port 8085 &
+airflow scheduler &
+
+
+Check if Airflow is Running
+--------------------------------------------------------------------------------------------
+ps aux | grep airflow-webserver/airflow/airflow-scheduler
+
+
+if Airflow is Running, Restart It
+--------------------------------------------------------------------------------------------
+airflow webserver --pid /home/dev1070/airflow/airflow-webserver.pid --daemon stop
+airflow webserver --daemon
+
+If the PID File Is Stale, Delete It
+--------------------------------------------------------------------------------------------
+rm -f /home/dev1070/airflow/airflow-webserver.pid
+airflow webserver --daemon
+
+airflow scheduler --daemon
+
+
+
+REMOVE APACHE AIRFLOW
+--------------------------------------------------------------------------------------------
+pip uninstall apache-airflow -y
+sudo rm -rf ~/airflow
+sudo rm -rf /opt/airflow
+sudo rm -rf ~/.local/lib/python*/site-packages/airflow*
+sudo rm -rf ~/.local/bin/airflow
+sudo rm -rf /usr/local/lib/python*/dist-packages/airflow*
+sudo rm -rf /usr/local/bin/airflow
+
+check airflow path
+----------------------------
+which airflow
+
+Check airflow version
+---------------------------
+airflow version
+

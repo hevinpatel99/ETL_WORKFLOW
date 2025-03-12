@@ -1,0 +1,52 @@
+Confluent Kafka CLI
+================================
+
+For create kafka topic
+------------------------------------------------------------------------------------------------------------------------
+kafka-topics --create --topic test_kafka_demo --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1
+
+For list the kafka topics
+---------------------------------------------------------------------------------------------------
+kafka-topics --list --bootstrap-server localhost:9092
+
+
+Kafka producer - produce the message
+--------------------------
+kafka-console-producer --topic test_kafka_demo --bootstrap-server localhost:9092
+
+Demo code
+------------------------------------------------------------------------------------------------------
+for i in {1..200}
+do
+  echo "Message $i" | kafka-console-producer --topic test_kafka_demo --bootstrap-server localhost:9092
+done
+
+
+Kafka consumer - consume the message
+---------------------------------------------------------------------------------------------------
+kafka-console-consumer --topic test_kafka_demo --from-beginning --bootstrap-server localhost:9092
+
+
+Consume with parttion
+---------------------------------------------------------------------------------------------------
+kafka-console-consumer --bootstrap-server localhost:9092 --topic test_kafka_demo --partition <specify partition> --from-beginning
+
+
+Consume on specific topic
+---------------------------------------------------------------------------------------------------
+kafka-console-consumer --topic test_kafka_demo --offset <offset_number> --bootstrap-server localhost:9092
+
+
+Delete the kafka topic
+---------------------------------------------------------------------------------------------------
+kafka-topics --bootstrap-server localhost:9092 --topic test_kafka_demo --delete
+
+For delete topic this configuration is needed
+---------------------------------------------------------------------------------------------------
+docker exec -it c55 bash -c 'echo "delete.topic.enable=true" >> /etc/kafka/server.properties'
+
+
+Check topic description like partiton , replicaion dfactor etc.
+---------------------------------------------------------------------------------------------------
+kafka-topics --bootstrap-server localhost:9092 --topic test_kafka_demo --describe
+
