@@ -348,7 +348,7 @@ python3 scripts/run_scheduler.py
 
 ### You can check the airflow cli command for reference
 
-- [airflow CLI command](../helper/airflow_cli.txt)
+- [airflow CLI command](helper/airflow_cli.txt)
 
 ***
 
@@ -462,11 +462,11 @@ docker ps
 
 ### You can check the kafka cli command for reference
 
-[airflow CLI command](../helper/airflow_cli.txt)
+[kafka CLI command](helper/kafka_cli.txt)
 
 ### You can check the cassandra cli command  for reference
 
-[cassandra CLI command](../helper/cassandra_cli.txt)
+[cassandra CLI command](helper/cassandra_cli.txt)
 
 ***
 
