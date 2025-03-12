@@ -212,7 +212,7 @@ def consume_messages(self):
 
 - Uses the DataSanitization for data sanitization.
 - If sanitization fails, the file is sent to the DLQ.
-- [View Sanitize Document](/home/dev1070/Hevin_1070/hevin.softvan@gmail.com/projects/Python_Workspace/ETL_workflow/documents/sanitize_process.md)
+- [View Sanitize Document](base_files/sanitize_process.py)
 
 #### JSON Conversion & Storage
 
