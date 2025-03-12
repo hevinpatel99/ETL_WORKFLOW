@@ -532,8 +532,8 @@ docker ps
 
 - Refer the validation & Sanitization process
 
-    - [validation.md](validation.md)
-    - [sanitize_process.md](sanitize_process.md)
+    - [validation.md](docs/data_validation.md)
+    - [sanitize_process.md](docs/sanitize_process.md)
 
 
 
