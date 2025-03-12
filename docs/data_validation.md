@@ -213,7 +213,7 @@ def consume_messages(self):
 
 - Uses the DataValidation module to check data integrity.
 - If validation fails, the file is sent to the DLQ.
-- [View Validation Document](/home/dev1070/Hevin_1070/hevin.softvan@gmail.com/projects/Python_Workspace/ETL_workflow/documents/validation.md)
+- [View Validation file](base_files/validation.py)
 
 #### JSON Conversion & Storage
 
