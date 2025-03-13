@@ -174,8 +174,8 @@ for script in scripts:
 
 
 - task_id='send_email_notification'
-
     - This assigns a unique identifier to the task within the DAG.
+
 - to=['hevin.mulani@sahanasystem.com']
 
     - Specifies the recipient(s) of the email notification.
@@ -195,6 +195,30 @@ for script in scripts:
 
     - Defines a task dependency.
     - send_email will only execute after previous_task completes successfully.
+
+## Need to gmail config in to airlow.cfg file if want to use EmailOperator
+
+#### Explanation of Each Setting:
+- `smtp_host`: The SMTP server address (e.g., smtp.gmail.com for Gmail).
+- `smtp_starttls`: Set to True if your SMTP server requires STARTTLS (enables encryption).
+- `smtp_ssl`: Set to False when using STARTTLS; if you were using SSL, set this to True and adjust the port accordingly.
+- `smtp_user`: Your email address used for authentication.
+- `smtp_password`: The password or app-specific password for your email account.
+- `Note`: For Gmail, you might need to use an app password if 2-factor authentication is enabled.
+- `smtp_port`: The port used by the SMTP server (587 for STARTTLS with Gmail).
+- `smtp_mail_from`: The sender email address that appears in the email notifications.
+
+```cfg
+[smtp]
+smtp_host = smtp.gmail.com
+smtp_starttls = True
+smtp_ssl = False
+smtp_user = your_email@gmail.com
+smtp_password = your_app_password
+smtp_port = 587
+smtp_mail_from = your_email@gmail.com
+
+```
 
 ```python
 
